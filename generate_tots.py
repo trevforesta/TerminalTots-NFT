@@ -37,7 +37,7 @@ def paste_faces(body, face):
 
 # main - shows available assets, generates Tots
 def main():
-    print("\n[Compucons Generator]\n\nAvailable Body Colors: ")
+    print("\n[TerminalTots Generator]\n\nAvailable Body Colors: ")
     print([b.strip('Body/*.png') for b in bodies])
     print("\nAvailable Faces: ")
     print([f.strip('Faces/*.png') for f in faces])
