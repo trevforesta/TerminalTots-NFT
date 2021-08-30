@@ -12,6 +12,11 @@ bodies = glob.glob ('Body/*')
 faces = glob.glob ('Faces/*')
 
 body_iter = iter(bodies)
+COUNT = 0
+
+def increment():
+    global COUNT
+    COUNT = COUNT+1
 
 def repeatlist(it, count):
     return islice(cycle(it), count)
@@ -21,13 +26,13 @@ def paste_faces(body, face):
     for n in range(len(faces)):
         face = Image.open(next(face_iter))
         body.paste(face, (53,79), mask=0)
-        body.save("Generated/" + str(body) + str(body_iter) + str(n), "PNG")
+        increment()
+        body.save("Generated/" + str(COUNT), "PNG")
         #print("n:"+ str(n))
         #print("body_iter:"+ str(body_iter))
         repeatlist(faces, len(bodies))
 
 def main():
-    body = Image.open(next(body_iter))
     print("\n[Compucons Generator]\n\nAvailable Body Colors: ")
     print([b.strip('Body/*.png') for b in bodies])
     print("\nAvailable Faces: ")
