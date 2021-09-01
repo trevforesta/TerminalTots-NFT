@@ -2,7 +2,7 @@
 #Description: This file can be used to add hats to generated TerminalTots that have backdrops.
 #Author: Trevor Foresta
 #Date Written: 8/30/2021
-#Date Last Modified: 8/31/2021
+#Date Last Modified: 8/30/2021
 
 import glob
 from PIL import Image
@@ -20,21 +20,27 @@ def increment():
     global COUNT
     COUNT = COUNT+1
 
+# repeatlist - resets faces iterator for next body
+# note: may also use this function for future accessories
+def repeatlist(it, count):
+    return islice(cycle(it), count)
+
 # add_hats - for given BGtot, paste every possible hat
 def add_hats(BGtot, hat):
     hat_iter = iter(hats)
-    for hat in range(len(hats)):
+    for n in range(len(hats)):
         hat = Image.open(next(hat_iter))
-        BGtot_copy = BGtot.copy()
-        BGtot_copy.paste(hat, (80,15), mask=hat)
+        BGtot.paste(face, (80,15), mask=0)
         increment()
-        BGtot_copy.save("GeneratedFinal/" + (str(COUNT).zfill(4)) + ".png", "PNG")
+        BGtot.save("GeneratedFinal/" + (str(COUNT).zfill(4)), "PNG")
+        repeatlist(hats, len(BGtots))
 
 # main - shows available assets, generates Tots
 def main():
+
     for index in range(len(BGtots)):
+        for hat in hats:
             BGtot = Image.open(next(BGtot_iter))
-            hat = None
             add_hats(BGtot, hat)
         
 main()
