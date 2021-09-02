@@ -9,7 +9,7 @@ from PIL import Image
 from itertools import cycle, islice
 
 #Pathways for backdrop tots and hat assets
-BGtots = glob.glob ('GeneratedBG/*')
+BGtots = glob.glob ('Generated/*')
 hats = glob.glob ('Hats/*')
 
 BGtot_iter = iter(BGtots)
@@ -18,7 +18,11 @@ COUNT = 0
 # increment - counter used for naming convention
 def increment():
     global COUNT
+    #Exception to skip special numbered Tots
+    if (COUNT == 63) or (COUNT == 78) or (COUNT == 299) or (COUNT == 403) or (COUNT == 419):
+        COUNT = COUNT+1
     COUNT = COUNT+1
+
 
 # add_hats - for given BGtot, paste every possible hat
 def add_hats(BGtot, hat):
@@ -28,7 +32,7 @@ def add_hats(BGtot, hat):
         BGtot_copy = BGtot.copy()
         BGtot_copy.paste(hat, (80,15), mask=hat)
         increment()
-        BGtot_copy.save("GeneratedFinal/" + (str(COUNT).zfill(4)) + ".png", "PNG")
+        BGtot_copy.save("GeneratedBG/" + (str(COUNT).zfill(3)) + ".png", "PNG")
 
 # main - shows available assets, generates Tots
 def main():

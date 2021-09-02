@@ -25,7 +25,8 @@ def attach_bg():
         background_img = Image.open(random.choice(backdrops))
         tot = Image.open(next(tots_iter))
         name = tot.filename
-        background_img.paste(tot, (150,200), mask=tot)
+        tot_copy = tot.copy()
+        background_img.paste(tot_copy, (150,200), mask=tot)
         increment()
         background_img.save("GeneratedBG/" + (str(COUNT).zfill(4))+ ".png", "PNG")
 
