@@ -19,7 +19,7 @@ COUNT = 0
 def increment():
     global COUNT
     #Exception to skip special numbered Tots
-    if (COUNT == 63) or (COUNT == 78) or (COUNT == 299) or (COUNT == 403) or (COUNT == 419):
+    if (COUNT == 63) or (COUNT == 68) or (COUNT == 78) or (COUNT == 199) or (COUNT == 299):
         COUNT = COUNT+1
     COUNT = COUNT+1
 
