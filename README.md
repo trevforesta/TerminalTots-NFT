@@ -1,7 +1,7 @@
 ![TerminalTots Logo](https://uploads-ssl.webflow.com/61116be30fa72a710da13ebe/612ced8bc60b405fcd8dc7f2_title.jpg)
 # TerminalTots NFT Project
 
-TerminalTots is an NFT (Non-Fungible Token) project written in Python. With designs inspired by the retro terminals of early computing, each TerminalTot is unique in its appearance. 
+TerminalTots is an NFT (Non-Fungible Token) project on the Polygon Blockchain. This repo contains a random icon generator written in Python. With designs inspired by the retro terminals of early computing, each TerminalTot is unique in its appearance. 
 
 Future update ideas: 
 * More colors and faces
